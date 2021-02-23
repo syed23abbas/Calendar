@@ -11,5 +11,5 @@ public:
     Month (std::string theName, int theDay, int month);
     int dayEnds(int firstDay, int numOfDays);
     int dayStarts(int firstDayOfYear, int monthNum);
-    void printMonth();
+    void printMonth(int numOfMonth, int firstDayOfYear);
 };
