@@ -17,6 +17,6 @@ Year::Year(int d) {
         }
     }
     for(int i=0; i<12; i++) {
-        monthArr[i].printMonth();
+        monthArr[i].printMonth(i+1, d);
     }
 }
