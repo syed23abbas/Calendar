@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Month.h"
 #include "Constants.h"
+#include<string>
 using namespace std;
 
 Month::Month (string theName, int theDay, int month)
@@ -15,7 +16,10 @@ Month::Month() {
     day = 1;
     monthNum = 1;
 }
-void Month::printMonth() {
+void Month::printMonth(int numOfMonth, int firstDayOfYear) {
+    int firstDay = dayStarts(firstDayOfYear, numOfMonth);
+    int day = 1;
+    bool flag = true;
     const string monday = "Mon";
     const string tuesday = "Tue";
     const string wednesday = "Wed";
@@ -25,14 +29,31 @@ void Month::printMonth() {
     const string sunday = "Sun";
     cout << name << endl;
     cout << monday << " " << tuesday << " " << wednesday << " " << thursday << " " << friday << " " << saturday << " " << sunday << endl;
-    
+    while(flag) {
+        string week = "";
+        for(int j=0; j<7; j++) {
+            if(day == 1 && j+1 == firstDay) {
+                week += to_string(day++) + "  ";
+            }
+            else if(day > 1 && day <= numDays(numOfMonth)) {
+                week += to_string(day++) + "  ";
+            }
+            else if(day == 1) {
+                week += "    ";
+            }
+            if(day > numDays(numOfMonth)) {
+                flag = false;
+            }
+        }
+        cout << week << endl;
+    }
 }
 
 int Month::dayEnds(int firstDay, int numOfDays){
     for(int i=0; i<numOfDays; i++) {
         firstDay++;
         if(firstDay == 8) {
-            firstDay = 1;
+            firstDay = 0;
         }
     }
     return firstDay;
