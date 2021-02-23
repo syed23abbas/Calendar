@@ -33,10 +33,15 @@ void Month::printMonth(int numOfMonth, int firstDayOfYear) {
         string week = "";
         for(int j=0; j<7; j++) {
             if(day == 1 && j+1 == firstDay) {
-                week += to_string(day++) + "  ";
+                week += to_string(day++) + "   ";
             }
             else if(day > 1 && day <= numDays(numOfMonth)) {
-                week += to_string(day++) + "  ";
+                if(day < 10) {
+                    week += to_string(day++) + "   ";
+                }
+                else{
+                    week += to_string(day++) + "  ";
+                }
             }
             else if(day == 1) {
                 week += "    ";
@@ -61,12 +66,10 @@ int Month::dayEnds(int firstDay, int numOfDays){
 
 int Month::dayStarts(int firstDayOfYear, int monthNum) {
     int totalDays = 0;
-    for(int i=0; i<monthNum; i++) {
-        for(int j=0; j<numDays(i+1); j++) {
-            totalDays++;
-        }
+    for(int i=1; i<monthNum; i++) {
+        totalDays += numDays(i);
     }
-    for(int i=0; i<=totalDays; i++) {
+    for(int i=0; i<totalDays; i++) {
         firstDayOfYear++;
         if(firstDayOfYear == 8) {
             firstDayOfYear = 1;
