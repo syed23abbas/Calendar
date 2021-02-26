@@ -4,6 +4,26 @@
 #include<string>
 using namespace std;
 
+const string Month:: monday;
+const string Month:: tuesday;
+const string Month:: wednesday;
+const string Month:: thursday;
+const string Month:: friday;
+const string Month:: saturday;
+const string Month:: sunday;
+const string Month:: january;
+const string Month:: february;
+const string Month:: march;
+const string Month:: april;
+const string Month:: may;
+const string Month:: june;
+const string Month:: july;
+const string Month:: august;
+const string Month:: september;
+const string Month:: october;
+const string Month:: november;
+const string Month:: december;
+
 Month::Month (string theName, int theDay, int month)
 {
   name = theName;
@@ -12,7 +32,7 @@ Month::Month (string theName, int theDay, int month)
 }
 
 Month::Month() {
-    name = "January";
+    name = january;
     day = 1;
     monthNum = 1;
 }
@@ -20,13 +40,6 @@ void Month::printMonth(int numOfMonth, int firstDayOfYear) {
     int firstDay = dayStarts(firstDayOfYear, numOfMonth);
     int day = 1;
     bool flag = true;
-    const string monday = "Mon";
-    const string tuesday = "Tue";
-    const string wednesday = "Wed";
-    const string thursday = "Thu";
-    const string friday = "Fri";
-    const string saturday = "Sat";
-    const string sunday = "Sun";
     cout << name << endl;
     cout << monday << " " << tuesday << " " << wednesday << " " << thursday << " " << friday << " " << saturday << " " << sunday << endl;
     while(flag) {
